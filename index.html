@@ -1,16 +1,213 @@
-<!DOCTYPE html>
+[15.08.2026 12:50] MY DAUGHTER: <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Study Compass</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .question {
+            margin: 20px 0;
+        }
+
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+
+        #result {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: #eef2ff;
+            border-radius: 15px;
+        }
+
+        .result-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>AI Study Compass</h1>
 
-    <p>Use AI to learn — not just to finish.</p>
+<div class="container">
 
-    <button>Find my study mode →</button>
+    <div class="hero">
+        <h1>🧭 AI Study Compass</h1>
+        <p>Use AI to learn — not just to finish.</p>
+    </div>
+
+    <div class="card">
+
+        <h2>Find your study mode</h2>
+
+        <div class="question">
+            <label>How much energy do you have today?</label>
+            <select id="energy">
+                <option value="high">High ⚡</option>
+                <option value="medium">Medium 🙂</option>
+                <option value="low">Low 😴</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label>What do you need to study?</label>
+            <select id="subject">
+                <option value="math">Mathematics</option>
+                <option value="english">English</option>
+                <option value="science">Science</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label>How much time do you have?</label>
+            <select id="time">
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="60">1 hour</option>
+                <option value="120">2+ hours</option>
+            </select>
+        </div>
+
+        <button onclick="findStudyMode()">
+            Find my study mode →
+        </button>
+
+        <div id="result">
+            <div class="result-title" id="resultTitle"></div>
+            <p id="resultText"></p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function findStudyMode() {
+
+    const energy = document.getElementById("energy").value;
+    const subject = document.getElementById("subject").value;
+    const time = document.getElementById("time").value;
+
+    let title = "";
+    let text = "";
+
+    if (energy === "low") {
+        title = "🌱 Gentle Focus Mode";
+        text = "Don't force yourself. Start with a small 15–25 minute session. Review notes, solve a few easy problems, and build momentum.";
+    }
+[15.08.2026 12:50] MY DAUGHTER: else if (energy === "medium") {
+        title = "🎯 Focus Mode";
+        text = "You have enough energy for a productive session. Study for 25–50 minutes, then take a short break.";
+    }
+
+    else {
+        title = "🚀 Deep Study Mode";
+        text = "You're ready to go! Use your energy for difficult topics, problem solving and active recall.";
+    }
+
+    if (subject === "math") {
+        text += " For mathematics, spend most of your time solving problems rather than just reading.";
+    }
+
+    if (subject === "english") {
+        text += " For English, combine vocabulary, reading and active speaking/writing practice.";
+    }
+
+    if (subject === "science") {
+        text += " For science, learn the concept first and then test yourself without looking at your notes.";
+    }
+
+    if (time === "15") {
+        text += " Your best plan today: one focused 15-minute sprint.";
+    }
+
+    else if (time === "30") {
+        text += " Try two 15-minute focused blocks.";
+    }
+
+    else if (time === "60") {
+        text += " Try 45 minutes of study followed by a 15-minute break.";
+    }
+
+    else {
+        text += " You can use several deep-work blocks with breaks between them.";
+    }
+
+    document.getElementById("resultTitle").textContent = title;
+    document.getElementById("resultText").textContent = text;
+    document.getElementById("result").style.display = "block";
+}
+
+</script>
+
 </body>
 </html>
