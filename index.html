@@ -177,13 +177,80 @@
 
 </div>
 
-<script>
+<script> 
+function findStudyMode() { 
+const energy = document.getElementById("energy").value;
+    const subject = document.getElementById("subject").value;
+    const time = document.getElementById("time").value;
+    const goal = document.getElementById("goal").value;
 
-function findStudyMode() {
+    let title = "";
+    let text = "";
+
+    if (energy === "low") {
+        title = "🌱 Gentle Focus Mode";
+        text = "Don't force yourself. Start with a small 15–25 minute session. Review notes, solve a few easy problems, and build your focus slowly.";
+    } 
+    else if (energy === "medium") {
+        title = "🎯 Focus Mode";
+        text = "You have enough energy for a productive session. Study for 25–50 minutes and focus on active practice rather than passive reading.";
+    } 
+    else {
+        title = "🚀 Deep Study Mode";
+        text = "You're ready to go! Use your energy for difficult topics, problem solving and active recall. Make the most of your study time.";
+    }
+
+    if (time === "15") {
+        text += " Your best plan today: one focused 15-minute sprint.";
+    } 
+    else if (time === "30") {
+        text += " Your best plan today: two focused 15-minute sessions.";
+    } 
+    else if (time === "60") {
+        text += " Your best plan today: a deep 50-minute session with a short break.";
+    }
+
+    document.getElementById("resultTitle").textContent = title;
+    document.getElementById("resultText").textContent = text;
+    document.getElementById("result").style.display = "block";
+const energy = document.getElementById("energy").value;
+    const subject = document.getElementById("subject").value;
+    const time = document.getElementById("time").value;
+    const goal = document.getElementById("goal").value;
+
+    let title = "";
+    let text = "";
+
+    if (energy === "low") {
+        title = "🌱 Gentle Focus Mode";
+        text = "Don't force yourself. Start with a small 15–25 minute session. Review notes, solve a few easy problems, and build your focus slowly.";
+    } 
+    else if (energy === "medium") {
+        title = "🎯 Focus Mode";
+        text = "You have enough energy for a productive session. Study for 25–50 minutes and focus on active practice rather than passive reading.";
+    } 
+    else {
+        title = "🚀 Deep Study Mode";
+        text = "You're ready to go! Use your energy for difficult topics, problem solving and active recall. Make the most of your study time.";
+    }
+
+    if (time === "15") {
+        text += " Your best plan today: one focused 15-minute sprint.";
+    } 
+    else if (time === "30") {
+        text += " Your best plan today: two focused 15-minute sessions.";
+    } 
+    else if (time === "60") {
+        text += " Your best plan today: a deep 50-minute session with a short break.";
+    }
+
+    document.getElementById("resultTitle").textContent = title;
+    document.getElementById("resultText").textContent = text;
+    document.getElementById("result").style.display = "block";
  const energy = document.getElementById("energy").value;
     const subject = document.getElementById("subject").value;
     const time = document.getElementById("time").value;
-
+const goal = document.getElementById("goal").value;
     let title = "";
     let text = "";
 
