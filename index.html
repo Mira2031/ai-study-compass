@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -124,7 +124,7 @@
             <label for="energy">How much energy do you have today?</label>
 
             <select id="energy">
-                <option value="high">High ⚡️</option>
+                <option value="high">High ⚡</option>
                 <option value="medium">Medium 🙂</option>
                 <option value="low">Low 😴</option>
             </select>
@@ -151,20 +151,20 @@
                 <option value="120">2+ hours</option>
             </select>
         </div>
-<div class="question">
-    <label for="goal">What is your goal today?</label>
 
-    <select id="goal">
-        <option value="learn">📖 Learn something new</option>
-        <option value="review">🔄 Review</option>
-        <option value="exam">📝 Prepare for an exam</option>
-        <option value="practice">🧩 Practice problems</option>
-        <option value="homework">📚 Finish homework</option>
-    </select>
-</div>
+        <div class="question">
+            <label for="goal">What is your goal today?</label>
 
-<button onclick="findStudyMode()">
-      
+            <select id="goal">
+                <option value="learn">📖 Learn something new</option>
+[20.08.2026 19:34] MY DAUGHTER: <option value="review">🔄 Review</option>
+                <option value="exam">📝 Prepare for an exam</option>
+                <option value="practice">🧩 Practice problems</option>
+                <option value="homework">📚 Finish homework</option>
+            </select>
+        </div>
+
+        <button onclick="findStudyMode()">
             Find my study mode →
         </button>
 
@@ -177,9 +177,10 @@
 
 </div>
 
-<script> 
-function findStudyMode() { 
-const energy = document.getElementById("energy").value;
+<script>
+function findStudyMode() {
+
+    const energy = document.getElementById("energy").value;
     const subject = document.getElementById("subject").value;
     const time = document.getElementById("time").value;
     const goal = document.getElementById("goal").value;
@@ -188,92 +189,22 @@ const energy = document.getElementById("energy").value;
     let text = "";
 
     if (energy === "low") {
-        title = "🌱 Gentle Focus Mode";
-        text = "Don't force yourself. Start with a small 15–25 minute session. Review notes, solve a few easy problems, and build your focus slowly.";
-    } 
-    else if (energy === "medium") {
-        title = "🎯 Focus Mode";
-        text = "You have enough energy for a productive session. Study for 25–50 minutes and focus on active practice rather than passive reading.";
-    } 
-    else {
-        title = "🚀 Deep Study Mode";
-        text = "You're ready to go! Use your energy for difficult topics, problem solving and active recall. Make the most of your study time.";
-    }
-
-    if (time === "15") {
-        text += " Your best plan today: one focused 15-minute sprint.";
-    } 
-    else if (time === "30") {
-        text += " Your best plan today: two focused 15-minute sessions.";
-    } 
-    else if (time === "60") {
-        text += " Your best plan today: a deep 50-minute session with a short break.";
-    }
-
-    document.getElementById("resultTitle").textContent = title;
-    document.getElementById("resultText").textContent = text;
-    document.getElementById("result").style.display = "block";
- </script>
-</body>
-</html>
-  
-
-    if (energy === "low") {
-        title = "🌱 Gentle Focus Mode";
-        text = "Don't force yourself. Start with a small 15–25 minute session. Review notes, solve a few easy problems, and build your focus slowly.";
-    } 
-    else if (energy === "medium") {
-        title = "🎯 Focus Mode";
-        text = "You have enough energy for a productive session. Study for 25–50 minutes and focus on active practice rather than passive reading.";
-    } 
-    else {
-        title = "🚀 Deep Study Mode";
-        text = "You're ready to go! Use your energy for difficult topics, problem solving and active recall. Make the most of your study time.";
-    }
-
-    if (time === "15") {
-        text += " Your best plan today: one focused 15-minute sprint.";
-    } 
-    else if (time === "30") {
-        text += " Your best plan today: two focused 15-minute sessions.";
-    } 
-    else if (time === "60") {
-        text += " Your best plan today: a deep 50-minute session with a short break.";
-    }
-
-    document.getElementById("resultTitle").textContent = title;
-    document.getElementById("resultText").textContent = text;
-    document.getElementById("result").style.display = "block";
- const energy = document.getElementById("energy").value;
-    const subject = document.getElementById("subject").value;
-    const time = document.getElementById("time").value;
-const goal = document.getElementById("goal").value;
-    let title = "";
-    let text = "";
-
-    // Choose study mode based on energy
-    if (energy === "low") {
 
         title = "🌱 Gentle Focus Mode";
-
         text = "Don't force yourself. Start with a small 15–25 minute session. Review notes, solve a few easy problems, and build momentum.";
 
     } else if (energy === "medium") {
 
         title = "🎯 Focus Mode";
-
         text = "You have enough energy for a productive session. Study for 25–50 minutes, then take a short break.";
 
     } else {
 
         title = "🚀 Deep Study Mode";
-
         text = "You're ready to go! Use your energy for difficult topics, problem solving and active recall.";
 
     }
 
-
-    // Add subject-specific advice
     if (subject === "math") {
 
         text += " For mathematics, spend most of your time solving problems rather than just reading.";
@@ -292,8 +223,6 @@ const goal = document.getElementById("goal").value;
 
     }
 
-
-    // Add time-specific advice
     if (time === "15") {
 
         text += " Your best plan today: one focused 15-minute sprint.";
@@ -312,13 +241,32 @@ const goal = document.getElementById("goal").value;
 
     }
 
+    if (goal === "learn") {
 
-    // Display the result
+        text += " Since your goal is to learn something new, focus on understanding the concept before practicing it.";
+
+    } else if (goal === "review") {
+
+        text += " Since you're reviewing, use active recall instead of simply rereading your notes.";
+
+    } else if (goal === "exam") {
+
+        text += " Since you're preparing for an exam, spend most of your time on exam-style questions.";
+
+    } else if (goal === "practice") {
+
+        text += " Since your goal is practice, solve problems first and check your mistakes afterward.";
+
+    } else if (goal === "homework") {
+
+        text += " Since you need to finish homework, work in focused blocks and avoid unnecessary distractions.";
+
+    }
+
     document.getElementById("resultTitle").textContent = title;
     document.getElementById("resultText").textContent = text;
     document.getElementById("result").style.display = "block";
 }
-
 </script>
 
 </body>
